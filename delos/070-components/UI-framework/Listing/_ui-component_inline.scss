@@ -4,10 +4,16 @@
 @use "../../../050-layout/basics/" as l;
 @use "../../../050-layout/layout_breakpoints" as l-brk;
 
-.c-listing-property__propertylabel:not(:has(.glyphicon)):after {
-    content: ":";
-}
-
-.c-listing-property + .c-listing-property {
-    margin-top: l.$il-margin-large-vertical;
+.c-listing-inline {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  > .c-listing-inline__item {
+    &::after {
+      content: ", ";
+    }
+    &:last-child::after {
+      content: "";
+    }
+  }
 }
